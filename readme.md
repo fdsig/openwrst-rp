@@ -21,7 +21,12 @@ use a sub to ethernet cable to connect the pi to the internet. For exmple this c
 
  #boot the pi and connect to the wifi network
 
- ```git clone https://github.com/jason-m-m/openwrt-wifi-router.git
- cd openwrt-wifi-router
+ 
+
+ ```bash
+ yes | git clone git@github.com:fdsig/openwrst-rp.git
+ cd openwrt-rp
  mv ./dhcp ./etc/config/dhcp
  mv ./network ./etc/config/network```
+
+

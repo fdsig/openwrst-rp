@@ -5,22 +5,20 @@ config interface 'loopback'
 	option netmask '255.0.0.0'
 
 config globals 'globals'
-	option ula_prefix 'fd05:98df:2e1f::/48'
+	option ula_prefix 'fd92:161c:c9d1::/48'
 
 config device
 	option name 'br-lan'
 	option type 'bridge'
-config interface 'wan'
-        option device 'eth0'
-        option proto 'static'
-        option ipaddr '192.168.1.199'
-        option netmask '255.255.255.0'
-        option gateway '192.168.1.254'
-        option dns '8.8.8.8'
+	list ports 'eth0'
 
 config interface 'lan'
 	option device 'br-lan'
 	option proto 'static'
-	option ipaddr '192.168.2.1'
+	# this is the ip of the router
+	option ipaddr '192.168.1.3'
 	option netmask '255.255.255.0'
 	option ip6assign '60'
+	option dns 8.8.8.8
+	#this is the ip of the router
+	option gateway '192.168.1.254'
