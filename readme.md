@@ -24,9 +24,16 @@ use a sub to ethernet cable to connect the pi to the internet. For exmple this c
  
 
  ```bash
- yes | git clone git@github.com:fdsig/openwrst-rp.git
+ git clone git@github.com:fdsig/openwrst-rp.git
  cd openwrt-rp
- mv ./dhcp ./etc/config/dhcp
- mv ./network ./etc/config/network```
+ cp ./dhcp /etc/config/dhcp
+ cp ./network /etc/config/network
+ ```
 
+after shelling in run on any packges that have not been specified in the open-wrt-build. eg an ethernet cable to usb driver for TP-Link UE300 USB 3.0 to Gigabit Ethernet Adapter.
+
+```bash
+opkg update
+opkg install kmod-usb-net-cdc-ether
+```
 
