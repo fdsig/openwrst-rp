@@ -1,15 +1,42 @@
-config wifi-device 'radio0'
-	option type 'mac80211'
-	option path 'platform/soc/fe300000.mmcnr/mmc_host/mmc1/mmc1:0001/mmc1:0001:1'
-	option band '5g'
-	option channel '36'
-	option htmode 'VHT80'
-	option disabled '0'
-	option country 'GB'
-
-config wifi-iface 'default_radio0'
-	option device 'radio0'
-	option network 'lan'
-	option mode 'ap'
-	option ssid 'OPENWRT_5G_Pi4'
-	option encryption 'psk2'
+# CHANGE 3. Service Set identifier ('ssid') of wifi network
+# ----- option ssid '****'                                                         
+# CHANGE 4. add this line to set wifi key                                          
+# ----- option key '****'                                                          
+# CHANGE 5. adding line to set encryption                    
+# ----- option encryption 'psk2'                             
+# CHANGE 6. adding country (optional but recommended for legal reasons)                                
+# ----- option country 'GB'                                
+# CHANGE 7. adding channel               
+# ----- option channel 'optimal number'  
+#-------------------------------         
+                                      
+config wifi-device 'radio1'            
+        option type 'mac80211'  
+        option path 'platform/soc/fe300000.mmcnr/mmc_host/mmc1/mmc1:0001/mmc1:0001:1'
+        option channel '11'                                                          
+        option band '5g'               
+        option htmode 'VHT80'                                                        
+                              
+config wifi-iface 'sta_radio1'                                                       
+        option device 'radio1'                                                       
+        option network 'wwan'                                                        
+        option mode 'sta'     
+        option ssid '********'
+        option key '********'
+        option encryption 'psk2'     
+                                
+config wifi-device 'radio0'          
+        option type 'mac80211'  
+        option path 'scb/fd500000.pcie/pci0000:00/0000:00:00.0/0000:01:00.0/usb2/2-1/2-1:1.3'
+        option channel '36'                                                                  
+        option band '5g'             
+        option htmode 'VHT80'                                                            
+        option txpower '40'   
+                                                                                             
+config wifi-iface 'ap_radio0'                                                                
+        option device 'radio0'                                                               
+        option network 'lan'  
+        option mode 'ap'      
+        option ssid 'OpenWrt' 
+        option key '***********'
+        option encryption 'psk2'  
