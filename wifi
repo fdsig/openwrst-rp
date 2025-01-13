@@ -4,12 +4,12 @@
 # ----- option key '****'                                                          
 # CHANGE 5. adding line to set encryption                    
 # ----- option encryption 'psk2'                             
-# CHANGE 6. adding country                                 
+# CHANGE 6. adding country (optional but recommended for legal reasons)                                
 # ----- option country 'GB'                                
 # CHANGE 7. adding channel               
 # ----- option channel 'optimal number'  
 #-------------------------------         
-                                         
+                                      
 config wifi-device 'radio1'            
         option type 'mac80211'  
         option path 'platform/soc/fe300000.mmcnr/mmc_host/mmc1/mmc1:0001/mmc1:0001:1'
