@@ -1,3 +1,16 @@
+#--------------------------------
+# CHANGE 1. 
+# for usb ethernet adapter
+# ----- list ports 'usb0'
+# CHANGE 2.
+# ensure seperate subnet (192.168.(n).1)
+# where n is a number between 1 and 254
+# CHANGE 3.
+# create a wan interface (to go to hour router)
+# ----- option device 'eth0'
+# ----- option proto 'dhcp'
+#--------------------------------
+
 config interface 'loopback'
 	option device 'lo'
 	option proto 'static'
@@ -17,9 +30,13 @@ config interface 'lan'
 	option device 'br-lan'
 	option proto 'static'
 	# this is the ip of the router
-	option ipaddr '192.168.1.3'
+	option ipaddr '192.168.2.1'
 	option netmask '255.255.255.0'
 	option ip6assign '60'
 	option dns 8.8.8.8
 	#this is the ip of the router
 	option gateway '192.168.1.254'
+
+config interface 'wan'
+	option device 'eth0'
+	option proto 'dhcp'
