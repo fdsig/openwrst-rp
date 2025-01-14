@@ -1,0 +1,6 @@
+
+# adding lines to restart the network and wifi on boot
+/etc/init.d/network restart
+wifi reload
+exit 0
+echo performance > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
