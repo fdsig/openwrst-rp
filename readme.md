@@ -37,3 +37,11 @@ opkg update
 opkg install kmod-usb-net-cdc-ether
 ```
 
+## To Do
+
+- [ ] step by step video recording
+- [ ] deploy on neopi5 mini router
+- [ ] make a reboot/ on boot reset option
+- [ ] update scirpt to set all settings when making the image
+    
+- 
