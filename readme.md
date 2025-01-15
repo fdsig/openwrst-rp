@@ -42,6 +42,14 @@ opkg install kmod-usb-net-cdc-ether
 - [ ] step by step video recording
 - [ ] deploy on neopi5 mini router
 - [ ] make a reboot/ on boot reset option
-- [ ] update scirpt to set all settings when making the image
+- [x] update scirpt to set all settings when making the image
     
 - 
+
+ideas for future
+
+- use a small model to detect anomilies in network traffic.
+- use an llm to summarise network traffic patterns.
+- treat nework traffic as a spectrogram and use a small model to detect specific patterns.
+- explore running code on openwrt/ an ml package for openwrt.
+
