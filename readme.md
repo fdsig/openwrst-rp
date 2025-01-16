@@ -21,14 +21,6 @@ use a sub to ethernet cable to connect the pi to the internet. For exmple this c
 
  #boot the pi and connect to the wifi network
 
- 
-
- ```bash
- git clone git@github.com:fdsig/openwrst-rp.git
- cd openwrt-rp
- cp ./dhcp /etc/config/dhcp
- cp ./network /etc/config/network
- ```
 
 after shelling in run on any packges that have not been specified in the open-wrt-build. eg an ethernet cable to usb driver for TP-Link UE300 USB 3.0 to Gigabit Ethernet Adapter.
 
@@ -36,6 +28,22 @@ after shelling in run on any packges that have not been specified in the open-wr
 opkg update
 opkg install kmod-usb-net-cdc-ether
 ```
+
+## diagram of setup in this repo
+## **Using Mermaid**
+
+```mermaid
+graph TD
+    Computer["Computer"] -->|SSH over LAN| Router["Router"]
+    Router -->|Sets Wi-Fi Password| MainRouter["Main Router (WWAN)"]
+    MainRouter -->|Connects to| WAN["WAN (Cabled)"]
+
+    style Computer fill:#f9f,stroke:#333,stroke-width:2px
+    style Router fill:#bbf,stroke:#333,stroke-width:2px
+    style MainRouter fill:#bfb,stroke:#333,stroke-width:2px
+    style WAN fill:#ffb,stroke:#333,stroke-width:2px
+```
+
 
 ## To Do
 
@@ -52,4 +60,4 @@ ideas for future
 - use an llm to summarise network traffic patterns.
 - treat nework traffic as a spectrogram and use a small model to detect specific patterns.
 - explore running code on openwrt/ an ml package for openwrt.
-
+- a wireless qr that does not require travel mate as this repos share the configs that essential set up a travle rounter.
