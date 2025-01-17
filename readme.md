@@ -45,6 +45,10 @@ graph TD
     style WAN fill:#ffb,stroke:#333,stroke-width:2px
 ```
 
+## NanoPi R5C Mini Router [here](https://wiki.friendlyelec.com/wiki/index.php/NanoPi_R5C#Install_OS_to_eMMC)
+
+
+
 
 ## To Do
 
@@ -52,6 +56,7 @@ graph TD
 - [ ] deploy on neopi5 mini router
 - [ ] make a reboot/ on boot reset option
 - [x] update scirpt to set all settings when making the image
+- [ ] step by step process for R5C mini router
     
 - 
 
@@ -62,4 +67,4 @@ random ideas for future
 - treat nework traffic as a spectrogram and use a small model to detect specific patterns.
 - explore running code on openwrt/ an ml package for openwrt.
 - a wireless qr that does not require travel mate as this repos share the configs that essential set up a travle rounter.
-- use wifi signal processing to detec objects in real time and use this to augment computer vision.
+- use wifi signal processing to detect objects in real time and use this to augment computer vision.
