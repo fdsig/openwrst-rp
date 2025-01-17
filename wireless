@@ -1,12 +1,12 @@
-# CHANGE 3. Service Set identifier ('ssid') of wifi network
+# CHANGE 1. Service Set identifier ('ssid') of wifi network
 # ----- option ssid '****'                                                         
-# CHANGE 4. add this line to set wifi key                                          
+# CHANGE 2. add this line to set wifi key                                          
 # ----- option key '****'                                                          
-# CHANGE 5. adding line to set encryption                    
+# CHANGE 3. adding line to set encryption                    
 # ----- option encryption 'psk2'                             
-# CHANGE 6. adding country (optional but recommended for legal reasons)                                
+# CHANGE 4. adding country (optional but recommended for legal reasons)                                
 # ----- option country 'GB'                                
-# CHANGE 7. adding channel               
+# CHANGE 5. adding channel               
 # ----- option channel 'optimal number'  
 #-------------------------------         
                                       

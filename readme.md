@@ -34,9 +34,10 @@ opkg install kmod-usb-net-cdc-ether
 
 ```mermaid
 graph TD
-    Computer["Computer"] -->|SSH over LAN| Router["Router"]
+    Computer["Computer"] -->|SSH or Luci app on LAN| Router["Router"]
     Router -->|Sets Wi-Fi Password| MainRouter["Main Router (WWAN)"]
     MainRouter -->|Connects to| WAN["WAN (Cabled)"]
+
 
     style Computer fill:#f9f,stroke:#333,stroke-width:2px
     style Router fill:#bbf,stroke:#333,stroke-width:2px
@@ -54,10 +55,11 @@ graph TD
     
 - 
 
-ideas for future
+random ideas for future
 
 - use a small model to detect anomilies in network traffic.
 - use an llm to summarise network traffic patterns.
 - treat nework traffic as a spectrogram and use a small model to detect specific patterns.
 - explore running code on openwrt/ an ml package for openwrt.
 - a wireless qr that does not require travel mate as this repos share the configs that essential set up a travle rounter.
+- use wifi signal processing to detec objects in real time and use this to augment computer vision.
