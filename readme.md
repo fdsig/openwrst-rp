@@ -47,6 +47,8 @@ graph TD
 
 ## NanoPi R5C Mini Router [here](https://wiki.friendlyelec.com/wiki/index.php/NanoPi_R5C#Install_OS_to_eMMC)
 
+Openwrt page [here](https://openwrt.org/toh/friendlyarm/nanopi_r5c)
+
 
 
 
@@ -57,6 +59,7 @@ graph TD
 - [ ] make a reboot/ on boot reset option
 - [x] update scirpt to set all settings when making the image
 - [ ] step by step process for R5C mini router
+- [ ] setup ssh with auth keys rather than password
     
 - 
 
