@@ -2,15 +2,27 @@
 # CHANGE 1. 
 # for usb ethernet adapter
 # ----- list ports 'usb0'
+# ----- list ports 'eth0' #uncomment depending on mode of conndeciton
 # CHANGE 2.
 # ensure seperate subnet (192.168.(n).1)
 # where n is a number between 1 and 254
 # CHANGE 3.
-# create a wan interface (to go to hour router)
-# ----- option device 'eth0'
-# ----- option proto 'dhcp'
+# create a wireles wan interface ( in this case main home router)
+# config interface 'wwan'   
+# ----- option device 'phy1-sta0' # wifi radio 1
+# ----- option proto 'dhcp' # main router assigns ip
+# CHANGE 4.
+# config interface 'wan'
+# ----- option device 'eth0' # ethernet cable
+# ----- option proto 'dhcp' # main router assigns ip
+# CHANGE 5.
+# ensure that below is removed remove from 'br-lan'
+#------ list ports 'eth0'
 #--------------------------------
 
+########################################################
+# Loopback
+########################################################
 config interface 'loopback'
 	option device 'lo'
 	option proto 'static'
@@ -20,23 +32,51 @@ config interface 'loopback'
 config globals 'globals'
 	option ula_prefix 'fd92:161c:c9d1::/48'
 
+########################################################             
+# LAN (wired bridgeds over usb/ethernet
+########################################################
 config device
 	option name 'br-lan'
 	option type 'bridge'
-	list ports 'eth0'
 	list ports 'usb0'
+	# list port 'eth0'
 
+########################################################             
+# Local Area Network (the wifi network of this router)                                          
+########################################################
 config interface 'lan'
 	option device 'br-lan'
 	option proto 'static'
-	# this is the ip of the router
+	# this is the ip that your (this) network will have
 	option ipaddr '192.168.2.1'
 	option netmask '255.255.255.0'
 	option ip6assign '60'
 	option dns 8.8.8.8
 	#this is the ip of the router
+	# this is the ip of main (home/hotel/other) router
 	option gateway '192.168.1.254'
 
+########################################################                
+# Wider Area Network (WAN) Static IP on Eth0 (ethernet)
+######################################################## 
 config interface 'wan'
 	option device 'eth0'
-	option proto 'dhcp'
+	#option proto 'dhcp' -- or use below
+	option proto 'static'
+	option ipaddr '192.168.1.4'
+	option netmask '255.255.255.0'
+	option gateway '192.168.1.254'
+	list dns '192.168.1.254'
+
+#####################################################                
+# Wireless Wider Area Nework (WWAN) (ditto WAN) 
+# uses inbult pi wifi to connect to main router
+##################################################### 
+config interface 'wwan'                                                
+        option proto 'static'                                          
+        #option proto 'dhcp' -- or use below
+	option device 'phy1-sta0'
+	option ipaddr '192.168.1.3'                                    
+        option netmask '255.255.255.0'                                 
+        option gateway '192.168.1.254'                                 
+        list dns '192.168.1.254'        
