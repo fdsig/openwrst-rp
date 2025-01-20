@@ -1,0 +1,70 @@
+
+config wifi-device 'radio0'
+	option type 'mac80211'
+	option path '3c0000000.pcie/pci0000:00/0000:00:00.0/0000:01:00.0'
+	option channel '157'
+	option band '5g'
+	option htmode 'VHT80'
+	option rx_stbc '0'
+	option cell_density '0'
+	option txpower '30'
+
+config wifi-iface 'default_radio0'
+	option device 'radio0'
+	option network 'lan'
+	option mode 'ap'
+	option ssid '***'
+	option encryption 'psk2'
+	option key '***'
+
+
+root@FriendlyWrt:~# cat /etc/config/network 
+
+config interface 'loopback'
+	option device 'lo'
+	option proto 'static'
+	option ipaddr '127.0.0.1'
+	option netmask '255.0.0.0'
+
+config globals 'globals'
+	option ula_prefix 'fd00:ab:cd::/48'
+
+config device
+	option name 'eth0'
+	option macaddr '86:3d:d9:46:cb:5f'
+
+config interface 'wan'
+	option device 'eth0'
+	option proto 'dhcp'
+
+config interface 'wan6'
+	option device 'eth0'
+	option proto 'dhcpv6'
+
+config device
+	option name 'br-lan'
+	option type 'bridge'
+	list ports 'eth1'
+
+config device
+	option name 'eth1'
+	option macaddr '86:3d:d9:46:cb:60'
+
+config interface 'lan'
+	option device 'br-lan'
+	option proto 'static'
+	option ipaddr '192.168.3.1'
+	option netmask '255.255.255.0'
+	option ip6assign '60'
+
+config interface 'docker'
+	option device 'docker0'
+	option proto 'none'
+	option auto '0'
+
+config device
+	option type 'bridge'
+	option name 'docker0'
+
+config interface 'wwan'
+	option proto 'dhcp'
