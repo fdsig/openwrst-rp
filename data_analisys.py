@@ -10,4 +10,7 @@ data = [
 
 df = pd.DataFrame(data)
 
+df = df.groupby('ssid').agg({'download': 'mean', 'upload': 'mean', 'ping': 'mean'})
+
+
 print(df)

@@ -6,13 +6,15 @@ def speed_test():
     # get ssid
     # get os (mac, linux, windows)
     os = platform.system()
-    if os in ['Darwin']:
+    print(os)
+    if os.lower() in ['darwin']:
         process = subprocess.Popen(['networksetup', '-listallhardwareports'], stdout=subprocess.PIPE)
         out, err = process.communicate()
         process.wait()
         # read lines to list
         lines = out.decode('utf-8').split('\n')
         for idx, line in enumerate(lines):
+            print(line)
             if 'Wi-Fi' in line:
                 print(line)
                 device = lines[idx + 1].split(' ')[1]
@@ -22,7 +24,7 @@ def speed_test():
                 process.wait()
                 ssid = out.decode('utf-8').split('Current Wi-Fi Network: ')[1].split('\n')[0]
                 print(ssid)
-    if os in ['Linux']:
+    elif os.lower() in ['linux']:
         process = subprocess.Popen(['iwgetid', '-r'], stdout=subprocess.PIPE)
         out, err = process.communicate()
         process.wait()

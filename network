@@ -73,10 +73,10 @@ config interface 'wan'
 # uses inbult pi wifi to connect to main router
 ##################################################### 
 config interface 'wwan'                                                
-        option proto 'static'                                          
+    option proto 'static'                                          
         #option proto 'dhcp' -- or use below
 	option device 'phy1-sta0'
 	option ipaddr '192.168.1.3'                                    
-        option netmask '255.255.255.0'                                 
-        option gateway '192.168.1.254'                                 
-        list dns '192.168.1.254'        
+    option netmask '255.255.255.0'                                 
+    option gateway '192.168.1.254'                                 
+    list dns '192.168.1.254'        
