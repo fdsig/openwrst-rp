@@ -19,6 +19,8 @@ df.download = df.download.round(1)
 df.upload = df.upload.round(1)
 df.ping = df.ping.round(1)
 # change ssid to [f'ssid_{i}' for i in range(len(df))]
-#df.index = ['Rasberry_pi', 'NanoPi_R2S', 'Home_router']
+
+df.index = ['Rasberry_pi', 'NanoPi_R2S', 'Home_router']
 
 print(df)
+df.to_csv('speedtest_data.csv')
