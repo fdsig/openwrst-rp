@@ -50,7 +50,12 @@ graph TD
 Openwrt page [here](https://openwrt.org/toh/friendlyarm/nanopi_r5c)
 
 
+step to manually install usb driver for the usb ethernet adapter
 
+```bash
+opkg update
+opkg install kmod-usb-net-rtl8152
+```
 
 ## To Do
 

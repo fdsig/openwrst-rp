@@ -39,7 +39,7 @@ config device
 	option name 'br-lan'
 	option type 'bridge'
 	list ports 'usb0'
-	# list port 'eth0'
+	list ports 'eth1'
 
 ########################################################             
 # Local Area Network (the wifi network of this router)                                          
@@ -54,8 +54,7 @@ config interface 'lan'
 	option dns 8.8.8.8
 	#this is the ip of the router
 	# this is the ip of main (home/hotel/other) router
-	option gateway '192.168.1.254'
-
+	
 ########################################################                
 # Wider Area Network (WAN) Static IP on Eth0 (ethernet)
 ######################################################## 
@@ -65,6 +64,7 @@ config interface 'wan'
 	option proto 'static'
 	option ipaddr '192.168.1.4'
 	option netmask '255.255.255.0'
+	#this is the ip of the main router
 	option gateway '192.168.1.254'
 	list dns '192.168.1.254'
 
@@ -77,6 +77,7 @@ config interface 'wwan'
         #option proto 'dhcp' -- or use below
 	option device 'phy1-sta0'
 	option ipaddr '192.168.1.3'                                    
-    option netmask '255.255.255.0'                                 
+    option netmask '255.255.255.0'
+	# this is the ip of the main router
     option gateway '192.168.1.254'                                 
     list dns '192.168.1.254'        
