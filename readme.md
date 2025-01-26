@@ -50,13 +50,38 @@ graph TD
 Openwrt page [here](https://openwrt.org/toh/friendlyarm/nanopi_r5c)
 
 
-step to manually install usb driver for the usb ethernet adapter
+step to manually install usb driver for the usb ethernet adapter 
 
 ```bash
 opkg update
 opkg install kmod-usb-net-rtl8152
 ```
 
+check if the driver is installed (the drive here is also added to the open-wrt-requirments.txt file for installation on image build)
+
+```bash
+lsmod | grep 8152
+```
+
+after install check the driver is working by running
+
+```bash
+ifconfig
+```
+
+output that you are looking for should be something like this (eth0 is the ehternet 
+cable and eth1 is the usb ethernet adapter)
+
+```bash
+eth0      Link encap:Ethernet  [...]
+eth1      Link encap:Ethernet  [...]
+    
+
+```
+
+then add the following to the /etc/config/network file:
+
+```bash
 ## To Do
 
 - [ ] step by step video recording
@@ -76,3 +101,10 @@ random ideas for future
 - explore running code on openwrt/ an ml package for openwrt.
 - a wireless qr that does not require travel mate as this repos share the configs that essential set up a travle rounter.
 - use wifi signal processing to detect objects in real time and use this to augment computer vision.
+
+
+## Interestion hardware:
+
+[vocore v2up](https://vocore.io/v2up.html)
+
+look how small it is!!!!
