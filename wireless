@@ -21,7 +21,7 @@ config wifi-iface 'sta_radio1'
         option device 'radio1'                                                       
         option network 'wwan'                                                        
         option mode 'sta'     
-        option ssid '********'
+        option ssid '*******'
         option key '********'
         option encryption 'psk2'     
                                 
