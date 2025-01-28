@@ -85,8 +85,8 @@ then add the following to the /etc/config/network file:
 ## To Do
 
 - [ ] step by step video recording
-- [ ] deploy on neopi5 mini router
-- [ ] make a reboot/ on boot reset option
+- [x] deploy on neopi5 mini router
+- [x] make a reboot/ on boot reset option
 - [x] update scirpt to set all settings when making the image
 - [ ] step by step process for R5C mini router
 - [ ] setup ssh with auth keys rather than password
